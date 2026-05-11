@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-retro: "ZCOOL KuaiLe", "Inter", sans-serif;
+  --font-pixel: "DotGothic16", monospace;
+}
+
+@layer base {
+  body {
+    @apply bg-[#1a1a1a] antialiased touch-none overflow-hidden h-[100dvh];
+    /* Safe Area Variables */
+    --sab: env(safe-area-inset-bottom);
+    --sat: env(safe-area-inset-top);
+  }
+}
+
+/* Mobile-First Adaptation */
+.app-container {
+  @apply w-full h-[100dvh] mx-auto relative bg-[#F5F1E9] overflow-hidden flex flex-col;
+  
+  /* Desktop/Tablet preview mimicking the 750x1624 physical (375x812 logical) ratio */
+  @apply md:max-w-[375px] md:h-[812px] md:my-auto md:rounded-[40px] md:border-[12px] md:border-[#1a1a1a] md:shadow-2xl;
+}
+
+/* CRT 扫描线 */
+.crt-overlay::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.02), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.02));
+  z-index: 50;
+  background-size: 100% 4px, 3px 100%;
+  pointer-events: none;
+}
+
+/* 雪花屏噪点 */
+.snow-screen {
+  opacity: 0.015;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+}
+
+/* Custom Animations */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.step-view {
+  display: none;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.step-view.active {
+  display: flex;
+  opacity: 1;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=DotGothic16&display=swap');

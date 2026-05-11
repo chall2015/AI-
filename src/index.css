@@ -1,0 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Noto+Sans+SC:wght@400;500;700;900&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Noto Sans SC', ui-sans-serif, system-ui, -apple-system, sans-serif;
+  --font-retro: 'ZCOOL KuaiLe', cursive;
+}
+
+@layer base {
+  body {
+    @apply bg-[#F5F1E9] antialiased touch-none overflow-hidden;
+  }
+  
+  /* Retro Scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-stone-100;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-orange-300 rounded-full;
+  }
+}
+
+/* Custom UI Elements */
+input[type="range"]::-webkit-slider-thumb {
+  pointer-events: all;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 9999px;
+  appearance: none;
+  cursor: ew-resize;
+  background: transparent;
+}
+

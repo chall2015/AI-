@@ -1,0 +1,10 @@
+{
+  "name": "AI时光机 - 回到小时候",
+  "description": "沉浸式童年回忆体验，一键穿越，重拾童真。融合AI照片还原、短视频互动与童年趣味闯关。",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "AI Image Transformation",
+    "Interactive Games",
+    "Nostalgic UI/UX"
+  ]
+}

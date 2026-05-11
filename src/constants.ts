@@ -7,7 +7,7 @@ export const CHILDHOOD_STYLES = [
     color: 'bg-orange-100',
     borderColor: 'border-orange-300',
     accent: 'text-orange-700',
-    image: 'https://images.unsplash.com/photo-1549400813-f66127e95459?q=80&w=300&h=400&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1591035897819-f4bdf739f446?q=80&w=600&auto=format&fit=crop'
   },
   {
     id: 'cute',
@@ -17,7 +17,7 @@ export const CHILDHOOD_STYLES = [
     color: 'bg-pink-100',
     borderColor: 'border-pink-300',
     accent: 'text-pink-700',
-    image: 'https://images.unsplash.com/photo-1502086223501-7ea24ec39460?q=80&w=300&h=400&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1544717297-fa95ec970fa4?q=80&w=600&auto=format&fit=crop'
   },
   {
     id: 'funny',
@@ -27,7 +27,7 @@ export const CHILDHOOD_STYLES = [
     color: 'bg-yellow-100',
     borderColor: 'border-yellow-400',
     accent: 'text-yellow-800',
-    image: 'https://images.unsplash.com/photo-1621307771473-2f45aa810d7e?q=80&w=300&h=400&auto=format&fit=crop'
+    image: 'https://images.unsplash.com/photo-1540479859204-70e44546d003?q=80&w=600&auto=format&fit=crop'
   }
 ];
 

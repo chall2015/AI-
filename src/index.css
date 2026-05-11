@@ -1,36 +1,58 @@
-@import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Noto+Sans+SC:wght@400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Press+Start+2P&family=Noto+Sans+SC:wght@400;500;700;900&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-sans: 'Noto Sans SC', ui-sans-serif, system-ui, -apple-system, sans-serif;
   --font-retro: 'ZCOOL KuaiLe', cursive;
+  --font-pixel: 'Press Start+2P', monospace;
 }
 
 @layer base {
   body {
-    @apply bg-[#F5F1E9] antialiased touch-none overflow-hidden;
-  }
-  
-  /* Retro Scrollbar */
-  ::-webkit-scrollbar {
-    width: 4px;
-  }
-  ::-webkit-scrollbar-track {
-    @apply bg-stone-100;
-  }
-  ::-webkit-scrollbar-thumb {
-    @apply bg-orange-300 rounded-full;
+    @apply bg-[#1a1a1a] antialiased touch-none overflow-hidden h-[100dvh];
+    /* Safe Area Variables */
+    --sab: env(safe-area-inset-bottom);
+    --sat: env(safe-area-inset-top);
   }
 }
 
-/* Custom UI Elements */
-input[type="range"]::-webkit-slider-thumb {
-  pointer-events: all;
-  width: 2.5rem;
-  height: 2.5rem;
-  border-radius: 9999px;
-  appearance: none;
-  cursor: ew-resize;
-  background: transparent;
+/* Mobile-First Adaptation */
+.app-container {
+  @apply w-full h-[100dvh] mx-auto relative bg-[#F5F1E9] overflow-hidden flex flex-col;
+  
+  /* Desktop/Tablet preview mimicking the 750x1624 physical (375x812 logical) ratio */
+  @apply md:max-w-[375px] md:h-[812px] md:my-auto md:rounded-[40px] md:border-[12px] md:border-[#1a1a1a] md:shadow-2xl;
+}
+
+/* CRT 扫描线 */
+.crt-overlay::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+  z-index: 20;
+  background-size: 100% 3px, 3px 100%;
+  pointer-events: none;
+}
+
+/* 雪花屏动画 */
+@keyframes static-noise {
+  0% { transform: translate(0,0) }
+  10% { transform: translate(-5%,-5%) }
+  30% { transform: translate(10%,5%) }
+  50% { transform: translate(-15%,10%) }
+  70% { transform: translate(5%,-10%) }
+  90% { transform: translate(-10%,5%) }
+  100% { transform: translate(0,0) }
+}
+
+.snow-screen {
+  background-image: url("https://www.transparenttextures.com/patterns/stardust.png");
+  opacity: 0.05;
+  animation: static-noise 0.2s infinite linear;
 }
 
